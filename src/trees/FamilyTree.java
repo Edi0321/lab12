@@ -151,7 +151,7 @@ public class FamilyTree
 		else
 		{
 			parentNode = root.getNodeWithName(parent); //There's a method in Node that searches for a named node.
-			if(parentNode == null) throw new TreeException("new");
+			if(parentNode == null) throw new TreeException("new one");
 		}
 		
 		// Add child nodes to parentNode.
