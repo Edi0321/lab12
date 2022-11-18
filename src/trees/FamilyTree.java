@@ -135,10 +135,17 @@ public class FamilyTree
 	//
 	private void addLine(String line) throws TreeException
 	{
+<<<<<<< HEAD
 		// Extract parent and array of children
 		int colonIndex = line.indexOf(":");
 		if (colonIndex < 0) throw new TreeException("wrong");
 		String parent = line.substring(0, colonIndex);
+=======
+		// Extract parent and array of children.
+		int colonIndex = line.indexOf(":");
+		if (colonIndex < 0) throw new TreeException("wrong");
+		String parent = line.substring(0,colonIndex);
+>>>>>>> 837b322a203af8bed20e600281581f40eaf86ad8
 		String childrenString = line.substring(colonIndex+1);
 		String[] childrenArray = childrenString.split(",");
 		
@@ -149,6 +156,7 @@ public class FamilyTree
 		if (root == null) parentNode = root = new TreeNode(parent);
 		else
 		{
+<<<<<<< HEAD
 			parentNode = root.getNodeWithName(parent);
 			if (parentNode == null) throw new TreeException("new");
 		}
@@ -156,6 +164,14 @@ public class FamilyTree
 		// Add child nodes to parentNode.
 		//?? For each name in childrenArray, create a new node and add that node to parentNode.
 		for (String s : childrenArray) {
+=======
+			parentNode = root.getNodeWithName(parent); //There's a method in Node that searches for a named node.
+			if(parentNode == null) throw new TreeException("new one");
+		}
+		
+		// Add child nodes to parentNode.
+		for (String s : childrenArray){
+>>>>>>> 837b322a203af8bed20e600281581f40eaf86ad8
 			TreeNode child = new TreeNode(s);
 			parentNode.children.add(child);
 		}
@@ -173,11 +189,19 @@ public class FamilyTree
 		// Get nodes for input names.
 		TreeNode node1 = root.getNodeWithName(name1);		// node whose name is name1
 		if (node1 == null)
+<<<<<<< HEAD
 			throw new TreeException("name1 doesn't exist");
 		TreeNode node2 = root.getNodeWithName(name2);		// node whose name is name2
 		if (node2 == null)
 			throw new TreeException("name2 doesn't exist");
 		
+=======
+			throw new TreeException("name1 does not exist");
+		TreeNode node2 = root.getNodeWithName(name2);	// node whose name is name2
+		if (node2 == null)
+			throw new TreeException("name1 does not exist");
+
+>>>>>>> 837b322a203af8bed20e600281581f40eaf86ad8
 		// Get ancestors of node1 and node2.
 		ArrayList<TreeNode> ancestorsOf1 = node1.children;
 		ArrayList<TreeNode> ancestorsOf2 = node2.children;
